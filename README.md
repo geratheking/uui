@@ -9,7 +9,12 @@ get all users
 POST /users\
 adds user. !important\
 only admins can add or remove users
-header authorization: "admin" needed
+header authorization: "admin" needed\
+body example:
+`{
+    "name": "Name",
+    "age": 100
+}`
 
 DELETE /users/:id\
 removes users by id
