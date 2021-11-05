@@ -1,16 +1,16 @@
 import App from './src/app';
 import config from './config';
-import Router from 'koa-router';
 import bodyParser from "koa-bodyparser";
-import errorHandler from './src/middlewares/errorHandler'
+import errorHandler from './src/middlewares/errorHandler';
+import isAdmin from "./src/middlewares/isAdmin";
 
 const app = new App(
     config.port,
     [
         bodyParser(),
         errorHandler,
-    ],
-    new Router(),
+        isAdmin,
+    ]
 );
 
 app.listen();
