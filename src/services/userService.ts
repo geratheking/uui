@@ -29,7 +29,7 @@ class UserService {
             age
         };
         users.push(newUser);
-        await this.db.writeDb(users);
+        this.db.writeDb(users);
 
         return newUser;
     }

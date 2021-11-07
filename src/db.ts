@@ -22,13 +22,13 @@ class DataBase {
         this.dbFilename = dbFilename;
     }
 
-    public async readDb():Promise<User[]> {
-        const content = await fs.readFileSync(this.dbFilename);
+    public readDb():User[] {
+        const content = fs.readFileSync(this.dbFilename);
         return JSON.parse(content.toString());
     }
 
-    public async writeDb(users: User[]):Promise<void> {
-        await fs.writeFileSync(this.dbFilename, JSON.stringify( users ));
+    public writeDb(users: User[]):void {
+        fs.writeFileSync(this.dbFilename, JSON.stringify( users ));
     }
 
 }
