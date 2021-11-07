@@ -45,6 +45,7 @@ class UserService {
         const users = currentUsers.filter((user: User) => user.id !== id);
 
         await this.db.writeDb(users);
+        return userToRemove;
     }
 }
 

@@ -19,9 +19,9 @@ const usersController = {
         ctx.body = `User ${name} (${age} y.o) created. ID: ${id}`;
     },
     async deleteItem(ctx: Koa.Context) {
-        await ctx.app.context.userService.deleteUser(ctx.params.itemId);
-        ctx.status = 204;
-        ctx.body = 'Removed';
+        const { name } = await ctx.app.context.userService.deleteUser(ctx.params.itemId);
+        ctx.status = 200;
+        ctx.body = `${name} removed`;
     },
 
 };
